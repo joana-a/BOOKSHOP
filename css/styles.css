@@ -1,0 +1,240 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #efc6e2;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    width: max-content;
+}
+
+#loginForm label {
+    margin-bottom: 8px;
+}
+
+#loginForm input {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 10px solid #ff8c94; 
+    border-radius: 4px;
+}
+
+#loginForm button {
+    padding: 10px;
+    background-color: #ff8c94; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#loginForm button:hover {
+    background-color: #ff6b81; 
+}
+
+#loginForm p {
+    margin-top: 10px;
+    color: #333; 
+}
+
+#loginForm a {
+    color: #007bff; 
+    
+    text-decoration: none;
+}
+
+#loginForm a:hover {
+    text-decoration: underline;
+}
+.top-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #e2b7c4;
+    color: #080808;
+    padding: 4px;
+    text-align: center;
+}
+
+.top-links a {
+    margin: 0 10px;
+    color: #ede4e4;
+    text-decoration: underline;
+}
+
+.top-links a:hover {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ff8c94; 
+    border-radius: 4px;
+    width: 100%;
+}
+
+form select,
+form input{
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    padding: 10px;
+    border: 1px solid #ff8c94; 
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #ff8c94; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #ff6b81; 
+}
+
+
+label {
+    margin-bottom: 8px;}
+
+    input {
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+    
+    button {
+        padding: 10px;
+        background-color: #ce6ba0;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #bd229c;
+    }
+    
+    a {
+        color: #f15cc7;
+        text-decoration: underline;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }    
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.content-container {
+    background-color: #f1ecec;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.input-field {
+    margin-bottom: 10px;
+}
+
+.signup-container {
+    background-color: #fcfbfb; 
+    padding: 40px;
+    border-radius: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: left;
+}
+.gender {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+#signupForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#signupForm label {
+    margin-bottom: 8px;
+}
+
+#signupForm input,
+#signupForm select {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ff8c94; 
+    border-radius: 4px;
+}
+
+#signupForm button {
+    padding: 10px;
+    background-color: #ff8c94; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#signupForm button:hover {
+    background-color: #ff6b81; 
+}
+
+#signupForm p {
+    margin-top: 10px;
+    color: #333; 
+}
+
+#signupForm a {
+    color: #007bff; 
+    text-decoration: none;
+}
+
+#signupForm a:hover {
+    text-decoration: underline;
+}
