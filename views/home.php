@@ -12,7 +12,7 @@
       background-color: #fff;
       color: #000;
     }
-    /* Header styles */
+    
     header {
       background-color: #ff69b4;
       padding: 20px;
@@ -24,7 +24,7 @@
       font-size: 28px;
       color: black;
     }
-    /* Navigation styles */
+    
     nav {
       background-color: #fff;
       padding: 10px 0;
@@ -36,7 +36,7 @@
       margin: 0 20px;
       font-size: 18px;
     }
-    /* Search bar styles */
+    
     .search-bar {
       text-align: center;
       margin-bottom: 20px;
@@ -57,21 +57,21 @@
       cursor: pointer;
       font-size: 16px;
     }
-    /* Main content styles */
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    /* Book carousel styles */
+    
     .carousel {
       display: flex;
       overflow-x: auto;
-      scrollbar-width: none; /* Hide scrollbar for Chrome and Edge */
-      -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+      scrollbar-width: none; 
+      -ms-overflow-style: none; 
     }
     .carousel::-webkit-scrollbar {
-      display: none; /* Hide scrollbar for Firefox */
+      display: none; 
     }
     .book {
       flex: 0 0 auto;
@@ -84,23 +84,52 @@
       height: 300px;
       object-fit: cover;
     }
-    /* Featured books section */
+    
     .featured-books {
       margin-top: 50px;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none; 
+      -ms-overflow-style: none; 
     }
-    .featured-books h2 {
+    .featured-books::-webkit-scrollbar {
+      display: none; 
+    }
+    .featured-books .book {
+      flex: 0 0 auto;
+      margin-right: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .book-categories {
+      margin-top: 50px;
+    }
+    .book-categories h2 {
       font-size: 24px;
       color: #ff69b4;
     }
-    .featured-books .book-list {
+    .book-categories .category {
+      margin-top: 20px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      overflow-x: auto;
+      scrollbar-width: none; 
+      -ms-overflow-style: none; 
     }
-    .featured-books .book {
-      margin: 20px;
+    .book-categories .category::-webkit-scrollbar {
+      display: none; 
     }
-    /* Footer styles */
+    .category h3 {
+      font-size: 20px;
+      color: #ff69b4;
+    }
+    .category .book {
+      flex: 0 0 auto;
+      margin-right: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }  
+    
     footer {
       background-color: #ff69b4;
       padding: 1px 0;
@@ -130,60 +159,171 @@
     <!-- Book Carousel -->
     <div class="carousel">
       <div class="book">
-        <img src="book1.jpg" alt="Book 1">
+        <img src="../assets/laow.jpg" alt="Book 1">
       </div>
       <div class="book">
-        <img src="book2.jpg" alt="Book 2">
+        <img src="../assets/lightningthief.jpg" alt="Book 2">
       </div>
       <div class="book">
-        <img src="book3.jpg" alt="Book 3">
+        <img src="../assets/hp1.jpg" alt="Book 3">
       </div>
-      <!-- Add more book covers here -->
+      <div class="book">
+        <img src="../assets/fourthwing.jpg" alt="Book 4">
+      </div>
+      <div class="book">
+        <img src="../assets/loveredesigned.jpg" alt="Book 5">
+      </div>
+      <div class="book">
+        <img src="../assets/milkandhoney.jpg" alt="Book 6">
+      </div>
+      <div class="book">
+        <img src="../assets/powerles.jpg" alt="Book 7">
+      </div>
+      <div class="book">
+        <img src="../assets/silentpatient.jpg" alt="Book 8">
+      </div>
+      <div class="book">
+        <img src="../assets/evelynhugo.jpg" alt="Book 9">
+      </div>
+      <div class="book">
+        <img src="../assets/unhoneymooners.jpg" alt="Book 10">
+      </div>
     </div>
-    <!-- Featured Books Section -->
-    <section class="featured-books">
-      <h2>Featured Books</h2>
-      <div class="book-list">
-        <div class="book">
-          <img src="book4.jpg" alt="Book 4">
-        </div>
-        <div class="book">
-          <img src="book5.jpg" alt="Book 5">
-        </div>
-        <div class="book">
-          <img src="book6.jpg" alt="Book 6">
-        </div>
-        <!-- Add more featured books here -->
+    
+<br>
+    <h2>Featured Books</h2>
+    <section class="featured-books">      
+      <div class="book">
+        <img src="../assets/termsandconditions.jpg" alt="Book 11">
+      </div>
+      <div class="book">
+        <img src="../assets/emwiuc.jpg" alt="Book 12">
+      </div>
+      <div class="book">
+        <img src="../assets/poppywar.jpg" alt="Book 13">
+      </div>
+      <div class="book">
+        <img src="../assets/ouabh1.jpg" alt="Book 14">
+      </div>
+      <div class="book">
+        <img src="../assets/divinerivals.jpg" alt="Book 15">
+      </div>
+      <div class="book">
+        <img src="../assets/beachread.jpg" alt="Book 16">
       </div>
     </section>
-    <!-- Popular Categories Section -->
-    <section class="popular-categories">
-      <h2>Popular Categories</h2>
-      <ul>
-        <li>Fiction</li>
-        <li>Non-Fiction</li>
-        <li>Mystery</li>
-        <li>Romance</li>
-        <li>Fantasy</li>
-        <!-- Add more popular categories here -->
-      </ul>
-    </section>
-    <!-- Author Spotlights Section -->
-    <section class="author-spotlights">
-      <h2>Author Spotlights</h2>
-      <ul>
-        <li>J.K. Rowling</li>
-        <li>Stephen King</li>
-        <li>Jane Austen</li>
-        <li>Agatha Christie</li>
-        <li>George R.R. Martin</li>
-        <!-- Add more author spotlights here -->
-      </ul>
+
+    
+    <section class="book-categories">
+      <h2>Book Categories</h2>
+      <h3><em>African Literature</em></h3>
+      <div class="category">
+        
+        <div class="book">
+          <img src="../assets/thingsfallapart.jpg" alt="African Book 1">
+        </div>
+        <div class="book">
+          <img src="../assets/abpp.jpg" alt="African Book 2">
+        </div>  
+        <div class="book">
+          <img src="../assets/natmilam.jpg" alt="African Book 3">
+        </div>  
+        <div class="book">
+          <img src="../assets/purplehibiscus.jpg" alt="African Book 4">
+        </div>  
+        <div class="book">
+          <img src="../assets/hisonlywife.jpg" alt="African Book 5">
+        </div>
+        <div class="book">
+          <img src="../assets/babasegi.jpg" alt="African Book 6">
+        </div>          
+      </div>
+
+      <h3><em>Non-Fiction</em></h3>
+      <div class="category">
+        
+        <div class="book">
+          <img src="../assets/48laws.jpg" alt="Non-Fiction Book 1">
+        </div>
+        <div class="book">
+          <img src="../assets/subtleart.jpg" alt="Non-Fiction Book 2">
+        </div>   
+        <div class="book">
+          <img src="../assets/richdad.jpg" alt="Non-Fiction Book 3">
+        </div>   
+        <div class="book">
+          <img src="../assets/nf4.jpg" alt="Non-Fiction Book 4">
+        </div>   
+        <div class="book">
+          <img src="../assets/nf5.jpg" alt="Non-Fiction Book 5">
+        </div>         
+      </div>
+
+
+      <h3><em>Thriller</em></h3>
+      <div class="category">
+        
+        <div class="book">
+          <img src="../assets/agggtm.jpg" alt="Mystery Book 1">
+        </div>
+        <div class="book">
+          <img src="../assets/verity.jpg" alt="Mystery Book 2">
+        </div>  
+        <div class="book">
+          <img src="../assets/iftomorrowcomes.jpg" alt="Mystery Book 3">
+        </div>  
+        <div class="book">
+          <img src="../assets/oouil.jpg" alt="Mystery Book 4">
+        </div>  
+        <div class="book">
+          <img src="../assets/silentpatient.jpg" alt="Mystery Book 5">
+        </div>        
+      </div>
+
+      <h3><em>Romance</em></h3>
+      <div class="category">
+        
+        <div class="book">
+          <img src="../assets/loveradio.jpg" alt="Romance Book 1">
+        </div>
+        <div class="book">
+          <img src="../assets/poyw.jpg" alt="Romance Book 2">
+        </div>
+        <div class="book">
+          <img src="../assets/pwmov.jpg" alt="Romance Book 3">
+        </div>
+        <div class="book">
+          <img src="../assets/bttm.jpg" alt="Romance Book 4">
+        </div>
+        <div class="book">
+          <img src="../assets/allyourperfects.jpg" alt="Romance Book 5">
+        </div>    
+      </div>
+      
+      <h3><em>Fantasy</em></h3>
+      <div class="category">
+        
+        <div class="book">
+          <img src="../assets/fourthwing.jpg" alt="Fantasy Book 1">
+        </div>
+        <div class="book">
+          <img src="../assets/mistborn.jpg" alt="Fantasy Book 2">
+        </div>
+        <div class="book">
+          <img src="../assets/mortal.jpg" alt="Fantasy Book 3">
+        </div>
+        <div class="book">
+          <img src="../assets/achilles.jpg" alt="Fantasy Book 4">
+        </div>
+        <div class="book">
+          <img src="../assets/caraval.jpg" alt="Fantasy Book 5">
+        </div>
+      </div>
     </section>
   </div>
-  <footer>
+
+  <!-- <footer>
     <p>&copy; 2024 jo's library<3. All rights reserved.</p>
-  </footer>
+  </footer> -->
 </body>
 </html>
-
