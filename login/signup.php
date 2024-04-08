@@ -28,8 +28,8 @@
     
             <div class="gender">
                 <label for="male">Gender:</label>
-                <input type="radio" name="gender" value="0" id="male"> Male
-                <input type="radio" name="gender" value="1" id="female"> Female 
+                <input type="radio" name="gender" value="male" id="male"> Male
+                <input type="radio" name="gender" value="female" id="female"> Female 
             </div>
             <!-- <label>Gender:</label>
             <label for="male">Male</label>

@@ -43,9 +43,8 @@
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
     
             <button type="submit" name="signInButton" id="signInButton" onclick= login()>Sign In</button>
-            <!-- <button type="button" onclick="login()">Login</button> -->
-        </form>
-        <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+           </form>
+        <p>Don't have an account? <a href="../login/signup.php">Sign Up</a></p>
     </div>
      
     <div class="footer"; style="background-color: white; color:#080808";>

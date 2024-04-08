@@ -7,7 +7,7 @@ if (isset($_POST["signInButton"])) {
     $password = $_POST["password"];
 
 
-    $selectquery = "SELECT * FROM Users WHERE email= '$email'";
+    $selectquery = "SELECT * FROM users WHERE email= '$email'";
 
     if ($result = mysqli_query($mysqli, $selectquery)) {
         if ($result->num_rows > 0) {
@@ -15,12 +15,11 @@ if (isset($_POST["signInButton"])) {
 
 
 
-            if (password_verify($password, $results['password'])) {
-               
-
-                session_start();
+            if (password_verify($password, $results['password'])) {            
                 $_SESSION["user_id"] = $results['user_id'];
                 $_SESSION["user_role"] = $results['role_id'];
+
+
 
                 header("Location: ../views/home.php");
             } 

@@ -46,7 +46,7 @@
     <div class="container">
       <h1><em>Welcome to jo's library<3 </em></h1>
       <p>Discover your next favorite book here!</p>
-      <a href="..views/login/login.php">Login</a> | <a href="..views/login/signup.php">Sign Up</a>
+      <a href="../login/login.php">Login</a> | <a href="../login/signup.php">Sign Up</a>
     </div>
   </div>
   <div class="footer">
