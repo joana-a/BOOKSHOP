@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require "../settings/connection.php";
 
@@ -14,7 +15,7 @@ if (isset($_POST["signInButton"])) {
 
             if (password_verify($password, $results['password'])) {            
                 $_SESSION["user_id"] = $results['user_id'];
-                $_SESSION["user_role"] = $results['role_id'];
+                $_SESSION["role_id"] = $results['role_id'];
 
                 // Redirect based on role_id
                 if ($results['role_id'] == 1) {
@@ -37,4 +38,4 @@ if (isset($_POST["signInButton"])) {
     header("Location: ../login/login.php");
     exit();
 }
-?>
+

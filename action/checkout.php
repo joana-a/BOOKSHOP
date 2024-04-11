@@ -1,7 +1,15 @@
 <?php
+session_start(); 
+
 include '../settings/connection.php';
-session_start();
-$user_id = $_SESSION['user_id']; 
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+
+if (!isset($_SESSION['user_id'])) {
+   header('location:../login/login.php');
+   exit();
+}
+
 
 if(isset($_POST['order_btn'])){
    $name = mysqli_real_escape_string($mysqli, $_POST['name']);
@@ -12,6 +20,7 @@ if(isset($_POST['order_btn'])){
    $placed_on = date('Y-m-d');
    $cart_total = 0;
    $cart_products = array();
+   $total_products_count = 0;
 
    $cart_query = mysqli_query($mysqli, "SELECT cart.*, books.title, books.price, books.bookcover, cart.cart_id FROM `cart` INNER JOIN `books` ON cart.book_id = books.book_id WHERE cart.user_id = '$user_id'") or die('Query failed');
        
@@ -20,27 +29,12 @@ if(isset($_POST['order_btn'])){
          $cart_products[] = $cart_item['title'].' ('.$cart_item['quantity'].') ';
          $sub_total = ($cart_item['price'] * $cart_item['quantity']);
          $cart_total += $sub_total;
+         
+         $total_products_count += $cart_item['quantity'];
       }
    }
-   
-$total_products_count = 0;
 
-
-if(mysqli_num_rows($cart_query) > 0){
-    while($cart_item = mysqli_fetch_assoc($cart_query)){
-        $cart_products[] = $cart_item['title'].' ('.$cart_item['quantity'].') ';
-        $sub_total = ($cart_item['price'] * $cart_item['quantity']);
-        $cart_total += $sub_total;
-        
-        $total_products_count += $cart_item['quantity'];
-    }
-}
-
-
-$total_products = implode(', ',$cart_products);
-
-
-   
+   $total_products = implode(', ',$cart_products);
 
    $order_query = mysqli_query($mysqli, "SELECT * FROM `orders` WHERE user_id = '$user_id' AND address = '$address' AND total_products = '$total_products' AND total_amount = '$cart_total'") or die('Query faileddd');
 

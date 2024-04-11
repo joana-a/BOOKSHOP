@@ -4,53 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookshop Home Page</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    $(document).ready(function() {
-  $('form').submit(function(event) {
-    event.preventDefault();
-
-    var query = $('input[name="search"]').val().trim();
-
-    // Perform AJAX request to search endpoint
-    $.ajax({
-      url: '../action/search.php', 
-      method: 'GET',
-      data: { search: query },
-      success: function(response) {
-        displaySearchResults(response);
-      },
-      error: function(xhr, status, error) {
-        console.error('Error:', error);
-        handleSearchError();
-      }
-    });
-  });
-
-  function displaySearchResults(results) {
-    var resultsContainer = $('#search-input'); 
-    resultsContainer.empty(); 
-
-    if (results.length === 0) {
-      resultsContainer.append('<p>No results found.</p>');
-      results.forEach(function(result) {
-        var resultItem = $('<div class="search-input"></div>'); 
-        resultItem.append('<h3>' + result.title + '</h3>'); 
-        resultItem.append('<p>Author: ' + result.author + '</p>'); 
-        resultItem.append('<p>Price: $' + result.price + '</p>'); 
-        resultsContainer.append(resultItem);
-      });
-    }
-  }
-
-
-  function handleSearchError() {
-    var resultsContainer = $('#search-results');
-    resultsContainer.empty(); 
-    resultsContainer.append('<p>Error occurred while searching. Please try again later.</p>'); 
-  }
-});
-  </script>
+  
   
   <style>
     body {

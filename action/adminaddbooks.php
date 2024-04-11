@@ -9,16 +9,12 @@ if (isset($_POST['add_product'])) {
     $price = $_POST['price'];
     $quantity = $_POST['quantity'];
 
-    // $select_product_name = mysqli_query($mysqli, "SELECT title FROM `books` WHERE title = '$name'") or die('query failed');
-
-    // if (mysqli_num_rows($select_product_name) > 0) {
-    //     $message = 'this book is already in your database';
-    // } else {
+   
     $target_dir = "../bookcovers/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check if image file is a actual image or fake image
+    
     if (isset($_POST["submit"])) {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
         if ($check !== false) {
@@ -28,12 +24,12 @@ if (isset($_POST['add_product'])) {
         }
     }
 
-    // Check if file already exists
+    
     if (file_exists($target_file)) {
         echo "Sorry, file already exists.";
     }
 
-    // Check file size
+    
     if ($_FILES["image"]["size"] > 500000) {
         echo "Sorry, your file is too large.";
         if (
@@ -43,8 +39,6 @@ if (isset($_POST['add_product'])) {
             echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         }
     }else{
-        // echo $title;
-        // exit;
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             $add_product_query = mysqli_query($mysqli, "INSERT INTO `books`(title, author, genre, price, quantity, bookcover) VALUES('$title', '$author', '$genre', '$price', '$quantity', '$target_file')") or die('query failedgggg');
     
@@ -59,15 +53,5 @@ if (isset($_POST['add_product'])) {
     }
     header('location:../admin/adminproducts.php');
 
-    // Allow certain file formats
-
-    // Check if $uploadOk is set to 0 by an error
-    // if ($uploadOk == 0) {
-    //     echo "Sorry, your file was not uploaded.";
-    //     // if everything is ok, try to upload file
-    // } else {
-
-    // echo $name . '<br>'. $author  . '<br>'. $genre . '<br>'. $price . '<br>'. $quantity . '<br>'. $target_file;
-    // exit();
+    
 }
-    // }

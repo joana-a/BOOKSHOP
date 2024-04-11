@@ -1,7 +1,16 @@
 <?php
 
-include_once '../settings/connection.php';
+session_start(); 
+
+include '../settings/connection.php';
 include '../action/adminaddbooks.php';
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+
+if (!isset($_SESSION['user_id'])) {
+   header('location:../login/login.php');
+   exit();
+}
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];

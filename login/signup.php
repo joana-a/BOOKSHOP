@@ -52,7 +52,7 @@
             <label for="confirmPassword">Retype Password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Retype your password" required>
     
-            <button type="submit" name="signupButton" id="signupButton">Sign Up</button>
+            <button type="submit" name="signupButton" id="signupButton" onclick= login()>Sign Up</button>
         </form>
         <p>Already have an account? <a href="../login/login.php">Login</a></p>
     </div>

@@ -1,8 +1,14 @@
 <?php
-include '../settings/connection.php';
-session_start();
+session_start(); 
 
-$user_id = $_SESSION['user_id'];
+include '../settings/connection.php';
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+
+if (!isset($_SESSION['user_id'])) {
+   header('location:../login/login.php');
+   exit();
+}
 
 if(isset($_POST['update_order'])){
    $order_update_id = $_POST['order_id'];

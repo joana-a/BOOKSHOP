@@ -1,22 +1,27 @@
 <?php
-include '../settings/connection.php';
-session_start();
+session_start(); 
 
-$user_id = isset( $_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+include '../settings/connection.php';
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+
+if (!isset($_SESSION['user_id'])) {
+   header('location:../login/login.php');
+   exit();
+}
 
 if(isset($_POST['add_to_cart'])){
    $product_name = $_POST['title'];
    $product_price = $_POST['price'];
    $product_quantity = $_POST['product_quantity'];
    $product_id= $_POST['book_id'];
-   $bookcover= $_POST['image'];
+   $bookcover= $_POST['bookcover'];
    
    $check_cart_numbers = mysqli_query($mysqli, "SELECT * FROM `cart` WHERE book_id = '$product_id' AND user_id = '$user_id'") or die('Query failed');
    
    if(mysqli_num_rows($check_cart_numbers) > 0){
       $message = 'Product already added to cart!';
    }else{
-      // mysqli_query($mysqli, "INSERT INTO `cart`(user_id, book_id, quantity) VALUES('$user_id', '$product_id', '$product_quantity')") or die('Query failed');
       mysqli_query($mysqli, "INSERT INTO `cart`(user_id, book_id, quantity) VALUES('$user_id', '$product_id', '$product_quantity')");
       $message = 'Product added to cart!';
    }
@@ -60,6 +65,7 @@ if(isset($_POST['add_to_cart'])){
                   <input type="hidden" name="title" value="<?php echo $fetch_products['title']; ?>">
                   <input type="hidden" name="price" value="<?php echo $fetch_products['price']; ?>">
                   <input type="hidden" name="book_id" value="<?php echo $fetch_products['book_id']; ?>">
+                  <input type="hidden" name="bookcover" value="<?php echo $fetch_products['bookcover']; ?>">
                   <input type="submit" value="Add to Cart" name="add_to_cart" class="btn">
                </form>
                <?php

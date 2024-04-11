@@ -1,8 +1,15 @@
 <?php
 
+session_start(); 
+
 include '../settings/connection.php';
-session_start();
- $user_id = $_SESSION['user_id']; 
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+
+if (!isset($_SESSION['user_id'])) {
+   header('location:../login/login.php');
+   exit();
+} 
 
 if(isset($_POST['add_to_cart'])){
 
