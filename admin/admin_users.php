@@ -54,7 +54,7 @@ if(isset($_GET['delete'])){
    </div>
 </section>
 
-<script src="../js/admin_script.js"></script>
+<script src="../js/adminscript.js"></script>
 
 </body>
 </html>

@@ -333,8 +333,8 @@ section{
 }
 
 .show-products .box-container .box .name{
-   padding:1rem 0;
-   font-size: 2rem;
+   padding:10px;
+   font-size: 20px;
    color:var(--black);
 }
 
@@ -458,38 +458,8 @@ section{
    margin-top: 0;
 }
 
-.messages .box-container{
-   display: grid;
-   grid-template-columns: repeat(auto-fit, 35rem);
-   justify-content: center;
-   gap:1.5rem;
-   max-width: 1200px;
-   margin:0 auto;
-   align-items: flex-start;
-}
 
-.messages .box-container .box{
-   background-color: var(--white);
-   padding:2rem;
-   border:var(--border);
-   box-shadow: var(--box-shadow);
-   border-radius: .5rem;
-}
 
-.messages .box-container .box p{
-   padding-bottom: 1.5rem;
-   font-size: 2rem;
-   color:var(--light-color);
-   line-height: 1.5;
-}
-
-.messages .box-container .box p span{
-   color:var(--purple);
-}
-
-.messages .box-container .box .delete-btn{
-   margin-top: 0;
-}
 
 
 

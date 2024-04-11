@@ -9,6 +9,7 @@ if(isset($_POST['add_to_cart'])){
    $product_price = $_POST['price'];
    $product_quantity = $_POST['product_quantity'];
    $product_id= $_POST['book_id'];
+   $bookcover= $_POST['image'];
    
    $check_cart_numbers = mysqli_query($mysqli, "SELECT * FROM `cart` WHERE book_id = '$product_id' AND user_id = '$user_id'") or die('Query failed');
    
@@ -47,12 +48,12 @@ if(isset($_POST['add_to_cart'])){
    <h1 class="title">Latest Additions</h1>
    <div class="box-container">
       <?php  
-         $select_products = mysqli_query($mysqli, "SELECT * FROM `books` LIMIT 6") or die('Query failed');
+         $select_products = mysqli_query($mysqli, "SELECT * FROM `books` LIMIT 9") or die('Query failed');
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
                ?>
                <form action="" method="post" class="box">
-                  <img class="image" src="uploaded_img/<?php echo $fetch_products['bookcover']; ?>" alt="">
+                  <img class="image" src="../bookcovers/<?php echo $fetch_products['bookcover']; ?>" alt="">
                   <div class="title"><?php echo $fetch_products['title']; ?></div>
                   <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
                   <input type="number" min="1" name="product_quantity" value="1" class="qty">

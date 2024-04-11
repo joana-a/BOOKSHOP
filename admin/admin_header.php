@@ -18,10 +18,12 @@
       </div>
 
       <div class="account-box">
-         <a href="logout.php" class="delete-btn">logout</a>
+         <a href="../login/logout.php" class="delete-btn">logout</a>
          <div>new <a href="../login/login.php">login</a> | <a href="../login/signup.php">sign up</a></div>
       </div>
 
+
    </div>
+   <script src="../js/adminscript.js"></script>
 
 </header>

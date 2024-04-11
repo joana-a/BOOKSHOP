@@ -34,17 +34,18 @@
    <?php
       if(isset($_POST['submit'])){
          $search_item = $_POST['search'];
-         $select_products = mysqli_query($mysqli, "SELECT * FROM `books` WHERE name LIKE '%{$search_item}%'") or die('query failed');
+         $select_products = mysqli_query($mysqli, "SELECT * FROM `books` WHERE title LIKE '%{$search_item}%'or author LIKE '%{$search_item}%'") or die('query failed');
          if(mysqli_num_rows($select_products) > 0){
          while($fetch_product = mysqli_fetch_assoc($select_products)){
    ?>
    <form action="" method="post" class="box">
-      <img src="uploaded_img/<?php echo $fetch_product['bookcover']; ?>" alt="" class="image">
+      <img class="image" src="../bookcovers/<?php echo $fetch_product['bookcover']; ?>" alt="">
       <div class="name"><?php echo $fetch_product['title']; ?></div>
       <div class="price">$<?php echo $fetch_product['price']; ?>/-</div>
       <input type="number"  class="qty" name="product_quantity" min="1" value="1">
       <input type="hidden" name="product_name" value="<?php echo $fetch_product['title']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
+      <input type="hidden" name="product_id" value="<?php echo $fetch_product['book_id']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_product['bookcover']; ?>">
       <input type="submit" class="btn" value="add to cart" name="add_to_cart">
    </form>

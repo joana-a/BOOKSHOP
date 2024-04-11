@@ -1,24 +1,19 @@
 <?php
-
 include '../settings/connection.php';
-
 session_start();
 
-$admin_id = $_SESSION['user_id'];
-
+$user_id = $_SESSION['user_id'];
 
 if(isset($_POST['update_order'])){
-
    $order_update_id = $_POST['order_id'];
-   $update_payment = $_POST['update_payment'];
-   mysqli_query($mysqli, "UPDATE `orders` SET payment_status = '$update_payment' WHERE id = '$order_update_id'") or die('query failed');
-   $message[] = 'payment status has been updated!';
-
+   $update_payment = $_POST['update_payment']; 
+   mysqli_query($mysqli, "UPDATE `orders` SET payment_status = '$update_payment' WHERE order_id = '$order_update_id'") or die('query failed');
+   $message = 'payment status has been updated!';
 }
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
-   mysqli_query($mysqli, "DELETE FROM `orders` WHERE id = '$delete_id'") or die('query failed');
+   mysqli_query($mysqli, "DELETE FROM `orders` WHERE order_id = '$delete_id'") or die('query failed');
    header('location: ../admin/admin_orders.php');
 }
 ?>
@@ -46,29 +41,29 @@ if(isset($_GET['delete'])){
 
    <div class="box-container">
       <?php
-      $select_orders = mysqli_query($mysqli, "SELECT * FROM `orders`") or die('query failed');
+      $select_orders = mysqli_query($mysqli, "SELECT orders.*, users.fname, users.lname, users.pno, users.email FROM `orders` INNER JOIN `users` ON orders.user_id = users.user_id") or die('query failed');
       if(mysqli_num_rows($select_orders) > 0){
          while($fetch_orders = mysqli_fetch_assoc($select_orders)){
       ?>
       <div class="box">
-         <p> user id : <span><?php echo $fetch_orders['user_id']; ?></span> </p>
-         <p> placed on : <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
-         <p> name : <span><?php echo $fetch_orders['name']; ?></span> </p>
-         <p> number : <span><?php echo $fetch_orders['number']; ?></span> </p>
-         <p> email : <span><?php echo $fetch_orders['email']; ?></span> </p>
-         <p> address : <span><?php echo $fetch_orders['address']; ?></span> </p>
-         <p> total products : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
-         <p> total price : <span>$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
+         <p> user name : <span><?php echo $fetch_orders['fname']. ' '. $fetch_orders['lname']; ?></span> </p>
+         <p> user number : <span><?php echo $fetch_orders['pno']; ?></span> </p>
+         <p> user email : <span><?php echo $fetch_orders['email']; ?></span> </p>
+         <p> placed on : <span><?php echo $fetch_orders['order_date']; ?></span> </p>
+
          <p> payment method : <span><?php echo $fetch_orders['method']; ?></span> </p>
+         <p> total products : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
+         <p> total price : <span>$<?php echo $fetch_orders['total_amount']; ?>/-</span> </p>
          <form action="" method="post">
-            <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
+            <input type="hidden" name="order_id" value="<?php echo $fetch_orders['order_id']; ?>">
+            <p>payment status: </p>
             <select name="update_payment">
                <option value="" selected disabled><?php echo $fetch_orders['payment_status']; ?></option>
                <option value="pending">pending</option>
                <option value="completed">completed</option>
             </select>
             <input type="submit" value="update" name="update_order" class="option-btn">
-            <a href="admin_orders.php?delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('delete this order?');" class="delete-btn">delete</a>
+            <a href="../admin/admin_orders.php?delete=<?php echo $fetch_orders['order_id']; ?>" onclick="return confirm('delete this order?');" class="delete-btn">delete</a>
          </form>
       </div>
       <?php
@@ -78,7 +73,7 @@ if(isset($_GET['delete'])){
       }
       ?>
    </div>
-   </section>
+</section>
 
 <script src="../js/adminscript.js"></script>
 
