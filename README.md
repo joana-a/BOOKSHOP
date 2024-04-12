@@ -23,7 +23,8 @@ Technologies Used
 - PHP
 - MySQL
 
-Link to live server:
+Link to live server: http://joslibrary.uksouth.cloudapp.azure.com/
+
 
 
 Usage
