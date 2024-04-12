@@ -13,8 +13,7 @@ if (isset($_POST['add_product'])) {
     $target_dir = "../bookcovers/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    
+  
     if (isset($_POST["submit"])) {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
         if ($check !== false) {
@@ -23,13 +22,9 @@ if (isset($_POST['add_product'])) {
             echo "File is not an image.";
         }
     }
-
-    
     if (file_exists($target_file)) {
         echo "Sorry, file already exists.";
     }
-
-    
     if ($_FILES["image"]["size"] > 500000) {
         echo "Sorry, your file is too large.";
         if (
